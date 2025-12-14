@@ -558,7 +558,7 @@ document.addEventListener("visibilitychange", () => {
 
 .agree-box {
   display: flex;
-  align-items: center;
+  align-items: flex-start;     /* FIX alignment */
   gap: 10px;
   margin: 18px 0;
   font-size: 0.9rem;
@@ -566,6 +566,7 @@ document.addEventListener("visibilitychange", () => {
 }
 
 .agree-box input[type="checkbox"] {
+  margin-top: 3px;             /* VISUAL CENTERING */
   width: 16px;
   height: 16px;
   accent-color: var(--neon-blue);
@@ -573,8 +574,11 @@ document.addEventListener("visibilitychange", () => {
 }
 
 .agree-box span {
-  cursor: pointer;
+  line-height: 1.5;            /* TEXT BALANCE */
+  cursor: pointer;
 }
+
+
 
 
 
