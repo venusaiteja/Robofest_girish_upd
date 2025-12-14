@@ -67,9 +67,10 @@ function renderParticipants(count) {
                placeholder="Member ${i} Name"
                required>
       </div>
-    `);
-  }
+    `);
+  }
 }
+
 
 // Initial load for 3 members
 renderParticipants(3);
@@ -113,5 +114,6 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
+
 
 
