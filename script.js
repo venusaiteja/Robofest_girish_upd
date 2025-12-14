@@ -1,0 +1,121 @@
+// ===== NAVBAR SCROLL =====
+let lastScroll = 0;
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+  const y = window.scrollY;
+  if (y > 80 && y > lastScroll) navbar.classList.add("show");
+  else navbar.classList.remove("show");
+  lastScroll = y;
+});
+
+// ===== SCROLL REVEAL =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("show");
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// ===== HAMBURGER =====
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll(".faq-q").forEach(q => {
+  q.addEventListener("click", () => {
+    const item = q.parentElement;
+    item.classList.toggle("active");
+  });
+});
+
+// ===== DYNAMIC PARTICIPANTS =====
+const categorySelect = document.getElementById("teamCategory");
+const feeNote = document.getElementById("feeNote");
+
+function updateFeeText(value) {
+  if (value === "3") {
+    feeNote.textContent = "Single Team: 3 members – ₹800 per member";
+    feeNote.style.color = "red";
+  } else {
+    feeNote.textContent = "Double Team: 6 members – ₹700 per member";
+    feeNote.style.color = "red";
+  }
+}
+
+// Initial fee load
+updateFeeText(categorySelect.value);
+
+categorySelect.addEventListener("change", (e) => {
+  updateFeeText(e.target.value);
+});
+
+const grid = document.getElementById("participantsGrid");
+
+function renderParticipants(count) {
+  grid.innerHTML = "";
+  for (let i = 1; i <= count; i++) {
+    grid.insertAdjacentHTML("beforeend", `
+      <div class="participant">
+        <input type="text" name="member${i}Name" placeholder="Member ${i} Name" required>
+      </div>
+      <div class="participant">
+        <input type="text"
+               name="member${i}SUC"
+               placeholder="Member ${i} SUC (10 chars)"
+               minlength="10"
+               maxlength="10"
+               required>
+      </div>
+    `);
+  }
+}
+
+// Initial load for 3 members
+renderParticipants(3);
+
+categorySelect.addEventListener("change", e => {
+  renderParticipants(parseInt(e.target.value));
+});
+
+// ===== FORM SUBMIT =====
+document.getElementById("registrationForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const submitBtn = form.querySelector("button[type='submit']");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting...";
+
+  const formData = new FormData(form);
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbw195QuLRFNI6mt6B6G6kkUaALEdPeP8Vl4U4Lvy8KXf11R-TFOMgmAkhm2YHlQVUmR/exec";
+
+  try {
+    const response = await fetch(scriptURL, {
+      method: "POST",
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      window.location.href = "thankyou.html";
+    } else {
+      alert("Submission failed. Please try again.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Registration";
+    }
+  } catch (error) {
+    alert("Network error. Please try again.");
+    console.error(error);
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit Registration";
+  }
+});
+

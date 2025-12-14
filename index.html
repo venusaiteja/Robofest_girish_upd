@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Robo Football League 2025</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND VIDEO -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="vid.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="brand">
+      <img src="logo.png" alt="RFL Logo">
+      <span>RFL 2025</span>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#register">Register</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#rules">Rules</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section reveal">
+  <div class="card hero">
+    <img src="logo.png" class="hero-logo" alt="RFL Logo">
+    <h1>Robo Football League 2025</h1>
+
+    <div class="meta">
+      <span>📅 27 December 2025</span>
+      <span>⏰ 9:00 AM onwards</span>
+      <span>📍 Aditya Degree College – Main Campus, Kakinada</span>
+    </div>
+
+    <p>
+      A robotics championship where teams battle with gesture-controlled robots.
+      Innovation, speed, and strategy decide the champion.
+    </p>
+
+    <a href="#register" class="btn-gradient">Register Now</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+  <div class="card">
+    <h2>About RFL 2025</h2>
+    <p>
+      Robo Football League (RFL) 2025 is a technical robotics competition focused on robotic soccer,
+      teamwork, innovation, and real-time strategy.
+    </p>
+
+    <h3>Purpose & Vision</h3>
+    <ul>
+      <li>Promote robotics and engineering innovation</li>
+      <li>Encourage teamwork and strategic thinking</li>
+      <li>Provide a competitive sports-tech platform</li>
+    </ul>
+
+    <h3>Team Structure & Fees</h3>
+    <p><strong>Single Team:</strong> 3 members – ₹800 per member</p>
+    <p><strong>Double Team:</strong> 6 members – ₹700 per member</p>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register" class="section reveal">
+  <div class="card gradient-card">
+    <h2>Team Registration</h2>
+
+    <form id="registrationForm">
+
+      <h4>Team Information</h4>
+     <input type="text" name="teamName" placeholder="Team Name" required>
+
+    <select id="teamCategory" name="teamCategory" required>
+    <option value="3">Single Team (3 Members)</option>
+    <option value="6">Double Team (6 Members)</option>
+    </select>
+
+    <p id="feeNote" class="fee-note"></p>
+
+    <input type="text" name="leaderName" placeholder="Team Leader Name" required>
+    <input type="email" name="leaderEmail" placeholder="Leader Email" required>
+    <input type="email" name="altEmail" placeholder="Alternative Email">
+    <input type="tel" name="leaderPhone" placeholder="Leader Phone" required>
+    <input type="tel" name="altPhone" placeholder="Alternative Phone">
+
+    <input type="text" name="department" placeholder="Department / Group" required>
+    <input type="text" name="year" placeholder="Year of Study" required>
+    <input type="text" name="college" placeholder="College Name" required>
+
+
+      <div class="grid" id="participantsGrid">
+        <!-- JS will inject fields here -->
+      </div>
+
+      <button type="submit" class="btn-gradient full">
+        Submit Registration
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faqs" class="section reveal">
+  <div class="card">
+    <h2>FAQs</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>Who can participate?</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="faq-a">
+        Any student from Aditya Degree College can participate.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>Is there a registration fee?</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="faq-a">
+        Single Team: ₹800 per member<br>
+        Double Team: ₹700 per member
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>Can we register multiple teams?</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="faq-a">
+        A college can register up to 2 Single Teams and 1 Double Team.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>Is accommodation available?</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="faq-a">
+        Accommodation is not provided. Lunch will be provided.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>What are the robot requirements?</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="faq-a">
+        The robot must be wireless, gesture-controlled, and comply with size and weight limits mentioned in the rules section.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules" class="section reveal">
+  <div class="card">
+  <h2>Rules</h2>
+
+  <ul>
+    <li>Wireless, gesture-controlled robot</li>
+    <li>Maximum size: 25 × 30 cm</li>
+    <li>Maximum weight: 5 kg</li>
+  </ul>
+
+  <p class="warning">⚠ Exceeding limits leads to disqualification.</p>
+
+  <h3>Game Rules (Robo Soccer)</h3>
+  <ul class="game-rules">
+    <li class="red">🔴 Red Ball → −15 Points</li>
+    <li class="green">🟢 Green Ball → −10 Points</li>
+    <li class="blue">🔵 Blue Ball → −5 Points</li>
+    <li class="dead">⚫ Dead Ball → −20 Points</li>
+    <li>Ball in red zone → −2 Points</li>
+  </ul>
+
+  <p>
+    Teams may remove opponent’s balls from the goal.
+    Removed balls do not give points.
+  </p>
+
+  <p><strong>Special Freeze Ball:</strong> Freezes opponent robot for 5 seconds.</p>
+
+  <p class="back-home">↩ Back to Home after every goal</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section reveal">
+  <div class="card">
+    <h2>Contact Us</h2>
+
+    <h3>Event Organizers</h3>
+    <p>📞 Botta Sri Akhila – 9398922754</p>
+    <p>📞 K. V. Niharika – 9182532802</p>
+    <p>📧 deptofai.adckkd@gmail.com</p>
+
+    <h3>Technical Support Team</h3>
+    <p>📞 K. Prabhu Kishore – 8106043739</p>
+    <p>📞 J. Venu Saiteja – 7081804278</p>
+    <p>📧 robofesttechteam@gmail.com</p>
+
+    <h3>Event Coordinators (Faculty)</h3>
+    <p>📞 Veera Sai Sir – 7794925663</p>
+    <p>📞 Tulasi Madam – 6305466228</p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Successful | RFL 2025</title>
+
+  <!-- Use SAME font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-blue: #00c6ff;
+      --neon-pink: #ff5ad9;
+      --text-dark: #1f2937;
+      --text-muted: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(
+        120deg,
+        #e8f6ff,
+        #f0eaff,
+        #ffeaf6
+      );
+      background-size: 300% 300%;
+      animation: bgFlow 30s ease infinite;
+      padding: 20px;
+    }
+
+    @keyframes bgFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: rgba(255,255,255,0.94);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle neon glow */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0,198,255,0.12),
+        rgba(255,90,217,0.12)
+      );
+      z-index: 0;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .check {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(90deg,var(--neon-blue),var(--neon-pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.8rem;
+      box-shadow: 0 15px 35px rgba(0,198,255,0.4);
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+
+    .details {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg,var(--neon-blue),var(--neon-pink));
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,198,255,0.35);
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 32px 22px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .video-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .video-bg video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND VIDEO -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="room.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+  <div class="card">
+    <div class="check">✓</div>
+
+    <h1>Registration Successful</h1>
+
+    <p>
+      Thank you for registering for <strong>Robo Football League 2025</strong>.
+      Your team details have been successfully submitted.
+    </p>
+
+    <div class="details">
+      📅 27 December 2025<br>
+      📍 Aditya Degree College – Main Campus, Kakinada
+    </div>
+
+    <a href="index.html" class="btn">Back to Home</a>
+  </div>
+
+</body>
+</html>
