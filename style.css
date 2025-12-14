@@ -187,6 +187,30 @@ body {
   z-index: 1;
 }
 
+.agree-box {
+  display: flex;
+  align-items: flex-start;     /* FIX alignment */
+  gap: 10px;
+  margin: 18px 0;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.agree-box input[type="checkbox"] {
+  margin-top: 3px;             /* VISUAL CENTERING */
+  width: 16px;
+  height: 16px;
+  accent-color: var(--neon-blue);
+  cursor: pointer;
+}
+
+.agree-box span {
+  line-height: 1.5;            /* TEXT BALANCE */
+  cursor: pointer;
+}
+
+
+
 /* =========================
    TYPOGRAPHY
 ========================= */
@@ -318,23 +342,31 @@ h1, h2, h3, h4 {
 /* =========================
    FORMS
 ========================= */
-form h4 {
-  margin: 20px 0 10px;
-  font-size: 1rem;
-}
+/* ===== FORM SPACING FIX ===== */
 
 form input,
 form select {
   width: 100%;
-  padding: 12px 14px;
-  margin-bottom: 14px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  font-size: 0.9rem;
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(6px);
-
+  padding: 14px 16px;
+  margin-bottom: 14px; /* IMPORTANT */
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255,255,255,0.85);
 }
+
+/* Section spacing */
+form h4 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+/* Remove extra spacing ONLY inside members grid */
+#participantsGrid input {
+  margin-bottom: 0;
+}
+
 
 form input:focus,
 form select:focus {
@@ -344,13 +376,16 @@ form select:focus {
 
 /* Participants grid */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 0;
 }
 
+
 .participant {
-  animation: fadeUp 0.3s ease forwards;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes fadeUp {
@@ -520,4 +555,11 @@ document.addEventListener("visibilitychange", () => {
     bgVideo.play();
   }
 });
+
+
+
+
+
+
+
 
