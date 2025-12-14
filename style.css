@@ -556,6 +556,27 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
+.agree-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.agree-box input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--neon-blue);
+  cursor: pointer;
+}
+
+.agree-box span {
+  cursor: pointer;
+}
+
+
 
 
 
