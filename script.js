@@ -9,6 +9,17 @@ window.addEventListener("scroll", () => {
   lastScroll = y;
 });
 
+// ===== ENABLE SUBMIT ONLY WHEN RULES CHECKBOX IS CHECKED =====
+const agreeRules = document.getElementById("agreeRules");
+const form = document.getElementById("registrationForm");
+const submitButton = form.querySelector("button[type='submit']");
+
+submitButton.disabled = true;  // Disable by default
+
+agreeRules.addEventListener("change", () => {
+  submitButton.disabled = !agreeRules.checked;
+});
+
 // ===== SCROLL REVEAL =====
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -55,7 +66,7 @@ categorySelect.addEventListener("change", (e) => {
   updateFeeText(e.target.value);
 });
 
-const grid = document.getElementById("participantsGrid");
+const participantsGrid = document.getElementById("participantsGrid");
 
 function renderParticipants(count) {
   participantsGrid.innerHTML = "";
@@ -70,7 +81,6 @@ function renderParticipants(count) {
     `);
   }
 }
-
 
 // Initial load for 3 members
 renderParticipants(3);
@@ -114,6 +124,3 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
-
-
-
