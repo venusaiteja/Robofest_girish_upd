@@ -100,7 +100,7 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
 
   const formData = new FormData(form);
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyAotYWXf0LtZQ5wKAen5DHsFRnOCDLNmq8CAM8lYwqn7na9CBj0MmQb5Ct4X3Us4WT/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzkO4bvXu16-bFB69FnJOOK4MTWrOpNmmCz6tL0Z_Grt8J77MDGpr4dGblc8LjTwRG4/exec";
 
   try {
     const response = await fetch(scriptURL, {
@@ -109,6 +109,13 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     });
 
     const result = await response.json();
+
+    if (result.status === "duplicate") {
+  alert("⚠ Team name already exists! Please choose another name.");
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Submit Registration";
+  return;
+}
 
     if (result.status === "success") {
       window.location.href = "thankyou.html";
@@ -124,4 +131,5 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
+
 
