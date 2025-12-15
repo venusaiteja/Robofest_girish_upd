@@ -606,6 +606,27 @@ document.addEventListener("visibilitychange", () => {
   color: #9ca3af;
 }
 
+.reg_End {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 15px;
+  animation: blinkGlow 1.2s infinite alternate;
+}
+
+/* Two-color blinking animation */
+@keyframes blinkGlow {
+  0% {
+    color: #ff0000;       /* Red */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  }
+  100% {
+    color: #ffffff;       /* White */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  }
+}
+
+
 
 
 
