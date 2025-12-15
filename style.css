@@ -599,6 +599,14 @@ document.addEventListener("visibilitychange", () => {
   box-shadow: 0 0 10px #ffffff;
   transform: translateY(-1px);
 }
+     .footer {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #1f2937;
+  color: #9ca3af;
+}
+
+
 
 
 
