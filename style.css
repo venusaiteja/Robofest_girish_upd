@@ -578,27 +578,29 @@ document.addEventListener("visibilitychange", () => {
   cursor: pointer;
 }
 /* STRONG WHITE RULEBOOK BUTTON */
+/* COMPACT WHITE RULEBOOK BUTTON */
 .btn-outline {
   display: inline-block;
-  padding: 12px 28px;
-  margin-top: 12px;
+  padding: 6px 14px;       /* Smaller padding */
   border: 2px solid #ffffff;
-  border-radius: 10px;
+  border-radius: 8px;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.6px;
+  font-weight: 600;
+  font-size: 14px;         /* Smaller text */
+  letter-spacing: 0.4px;
   text-decoration: none;
   transition: 0.3s ease;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05); 
 }
 
 .btn-outline:hover {
   background: #ffffff;
   color: #000000;
-  box-shadow: 0 0 20px #ffffff;
-  transform: translateY(-2px);
+  box-shadow: 0 0 10px #ffffff;
+  transform: translateY(-1px);
 }
+
+
 
 
 
