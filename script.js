@@ -50,7 +50,7 @@ const categorySelect = document.getElementById("teamCategory");
 const feeNote = document.getElementById("feeNote");
 
 function updateFeeText(value) {
-  if (value === "3") {
+  if (value === "3-Single") {
     feeNote.textContent = "Single Team: 3 members – ₹800 per member";
     feeNote.style.color = "red";
   } else {
@@ -131,5 +131,6 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
+
 
 
