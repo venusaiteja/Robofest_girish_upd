@@ -100,7 +100,7 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
 
   const formData = new FormData(form);
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbzkO4bvXu16-bFB69FnJOOK4MTWrOpNmmCz6tL0Z_Grt8J77MDGpr4dGblc8LjTwRG4/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbztotkm99LKv6i3NqB_xbeM6jqwHacGLgO6-7rLdEoyZdIkWEZWUK8MfRXs0nB-dN4t/exec";
 
   try {
     const response = await fetch(scriptURL, {
@@ -131,6 +131,7 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
+
 
 
 
