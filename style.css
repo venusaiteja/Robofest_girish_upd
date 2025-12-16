@@ -637,44 +637,32 @@ document.addEventListener("visibilitychange", () => {
   margin-top: 15px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
   text-align: center;
 }
 
+/* Static text → stays white */
+.label-text {
+  color: #ffffff;
+  margin-right: 6px;
+}
+
+/* Countdown only → neon animated */
 #countdown {
   color: #00ffcc;
-  text-shadow: 
-    0 0 5px #00ffcc,
-    0 0 10px #00ffcc,
-    0 0 20px #00ffcc;
+  font-weight: 700;
+  text-shadow:
+    0 0 6px #00ffcc,
+    0 0 12px #00ffcc;
   animation: pulse 1.2s infinite alternate;
 }
 
+/* Neon pulse animation */
 @keyframes pulse {
   from {
-    text-shadow: 0 0 5px #00ffcc;
+    text-shadow: 0 0 6px #00ffcc;
   }
   to {
-    text-shadow: 0 0 20px #ff00ff;
+    text-shadow: 0 0 18px #00ffcc;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
