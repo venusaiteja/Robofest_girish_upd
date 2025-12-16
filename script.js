@@ -14,7 +14,7 @@ const agreeRules = document.getElementById("agreeRules");
 const form = document.getElementById("registrationForm");
 const submitButton = form.querySelector("button[type='submit']");
 
-submitButton.disabled = true;  // Disable by default
+submitButton.disabled = true;
 
 agreeRules.addEventListener("change", () => {
   submitButton.disabled = !agreeRules.checked;
@@ -40,8 +40,7 @@ hamburger.addEventListener("click", () => {
 // ===== FAQ ACCORDION =====
 document.querySelectorAll(".faq-q").forEach(q => {
   q.addEventListener("click", () => {
-    const item = q.parentElement;
-    item.classList.toggle("active");
+    q.parentElement.classList.toggle("active");
   });
 });
 
@@ -59,10 +58,9 @@ function updateFeeText(value) {
   }
 }
 
-// Initial fee load
 updateFeeText(categorySelect.value);
 
-categorySelect.addEventListener("change", (e) => {
+categorySelect.addEventListener("change", e => {
   updateFeeText(e.target.value);
 });
 
@@ -82,25 +80,56 @@ function renderParticipants(count) {
   }
 }
 
-// Initial load for 3 members
 renderParticipants(3);
 
 categorySelect.addEventListener("change", e => {
   renderParticipants(parseInt(e.target.value));
 });
 
+// ===== REGISTRATION COUNTDOWN TIMER =====
+const countdownElement = document.getElementById("countdown");
+const registerSection = document.getElementById("register");
+
+// Deadline → 18 December 2025, 5:00 PM IST
+const deadline = new Date("December 18, 2025 17:00:00").getTime();
+
+const countdownInterval = setInterval(() => {
+  const now = new Date().getTime();
+  const diff = deadline - now;
+
+  if (diff <= 0) {
+    clearInterval(countdownInterval);
+    countdownElement.innerHTML = "🚫 Registration Closed";
+
+    // Disable form completely
+    submitButton.disabled = true;
+    submitButton.textContent = "Registration Closed";
+
+    registerSection.classList.add("disabled");
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  countdownElement.innerHTML =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}, 1000);
+
 // ===== FORM SUBMIT =====
 document.getElementById("registrationForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const form = e.target;
-  const submitBtn = form.querySelector("button[type='submit']");
+  const submitBtn = e.target.querySelector("button[type='submit']");
   submitBtn.disabled = true;
   submitBtn.textContent = "Submitting...";
 
-  const formData = new FormData(form);
+  const formData = new FormData(e.target);
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbztotkm99LKv6i3NqB_xbeM6jqwHacGLgO6-7rLdEoyZdIkWEZWUK8MfRXs0nB-dN4t/exec";
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbztotkm99LKv6i3NqB_xbeM6jqwHacGLgO6-7rLdEoyZdIkWEZWUK8MfRXs0nB-dN4t/exec";
 
   try {
     const response = await fetch(scriptURL, {
@@ -111,11 +140,11 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     const result = await response.json();
 
     if (result.status === "duplicate") {
-  alert("⚠ Team name already exists! Please choose another name.");
-  submitBtn.disabled = false;
-  submitBtn.textContent = "Submit Registration";
-  return;
-}
+      alert("⚠ Team name already exists! Please choose another name.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Registration";
+      return;
+    }
 
     if (result.status === "success") {
       window.location.href = "thankyou.html";
@@ -131,7 +160,3 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
-
-
-
-
