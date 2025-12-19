@@ -86,38 +86,6 @@ categorySelect.addEventListener("change", e => {
   renderParticipants(parseInt(e.target.value));
 });
 
-// ===== REGISTRATION COUNTDOWN TIMER =====
-const countdownElement = document.getElementById("countdown");
-const registerSection = document.getElementById("register");
-
-// Deadline → 19 December 2025, 9:00 PM IST
-const deadline = new Date("December 19, 2025 21:00:00").getTime();
-
-const countdownInterval = setInterval(() => {
-  const now = new Date().getTime();
-  const diff = deadline - now;
-
-  if (diff <= 0) {
-    clearInterval(countdownInterval);
-    countdownElement.innerHTML = "🚫 Registration Closed";
-
-    // Disable form completely
-    submitButton.disabled = true;
-    submitButton.textContent = "Registration Closed";
-
-    registerSection.classList.add("disabled");
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  countdownElement.innerHTML =
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}, 1000);
-
 // ===== FORM SUBMIT =====
 document.getElementById("registrationForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -160,6 +128,7 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
+
 
 
 
