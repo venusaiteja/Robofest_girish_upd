@@ -90,8 +90,8 @@ categorySelect.addEventListener("change", e => {
 const countdownElement = document.getElementById("countdown");
 const registerSection = document.getElementById("register");
 
-// Deadline → 19 December 2025, 5:00 PM IST
-const deadline = new Date("December 19, 2025 17:00:00").getTime();
+// Deadline → 19 December 2025, 4:00 PM IST
+const deadline = new Date("December 19, 2025 16:00:00").getTime();
 
 const countdownInterval = setInterval(() => {
   const now = new Date().getTime();
@@ -160,5 +160,6 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
     submitBtn.textContent = "Submit Registration";
   }
 });
+
 
 
